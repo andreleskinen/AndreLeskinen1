@@ -1,49 +1,42 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
 - main
 
 pool:
   vmImage: ubuntu-latest
+  # name: 'MartinsXPS15'
+  # demands:
+  #   - agent.name -equals MARTINS_XPS15
 
+#https://learn.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml
+#Multiple jobs will run in parallell if possible
+#Dependency can controll the flow, when a job shall be performed
 jobs:
-- job: myFirstJob
-
+- job: myJobA
+  displayName: 'myJobA saying Hello World' 
+  timeoutInMinutes: 10
   steps:
-  - script: echo Hello, world!
-    displayName: 'Run a one-line script'
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    ls -l
-    pwd
-  displayName: 'Run a multi-line script'
-
-- script: dotnet run -project /Users/Andre/Desktop/Development/AndreLeskinen1/AndreLeskinen1.csproj
-  displayName: 'Run a console app'
+  - bash: echo "Hello world from myJobA"
+  - bash: echo "Hello world from myJobA"
+  #- bash: exit 1  #This step will now fail, so myJobC will be skipped
 
 
-  jobs:
-- job: mySecondtJob
-
+- job: myJobB
+  displayName: 'myJobB saying Hello World' 
+  timeoutInMinutes: 10
   steps:
-  - script: echo Hello, world!
-    displayName: 'Run a one-line script'
+  - bash: echo "Hello world from myJobB"
+  - bash: echo "Hello world from myJobB"
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    ls -l
-    pwd
-  displayName: 'Run a multi-line script'
-
-- script: dotnet run -project /Users/Andre/Desktop/Development/AndreLeskinen1/AndreLeskinen1.csproj
-  displayName: 'Run a console app'
+- job: myJobC
+  displayName: 'myJobC saying Hello World after myJobA and myJobB' 
+  timeoutInMinutes: 10
+  dependsOn: 
+  - myJobA
+  - myJobB
+  steps:
+  - bash: echo "Hello world from myJobC after myJobA and myJobB"
