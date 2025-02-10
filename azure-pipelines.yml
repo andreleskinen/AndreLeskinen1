@@ -9,6 +9,13 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+jobs:
+- job: myFirstJob
+
+  steps:
+  - script: echo Hello, world!
+    displayName: 'Run a one-line script'
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
@@ -17,3 +24,26 @@ steps:
     ls -l
     pwd
   displayName: 'Run a multi-line script'
+
+- script: dotnet run -project /Users/Andre/Desktop/Development/AndreLeskinen1/AndreLeskinen1.csproj
+  displayName: 'Run a console app'
+
+
+  jobs:
+- job: mySecondtJob
+
+  steps:
+  - script: echo Hello, world!
+    displayName: 'Run a one-line script'
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    ls -l
+    pwd
+  displayName: 'Run a multi-line script'
+
+- script: dotnet run -project /Users/Andre/Desktop/Development/AndreLeskinen1/AndreLeskinen1.csproj
+  displayName: 'Run a console app'

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Andre/AndreLeskinen1/AndreLeskinen1.csproj": {}
+    "/Users/Andre/Desktop/Development/AndreLeskinen1/AndreLeskinen1.csproj": {}
   },
   "projects": {
-    "/Users/Andre/AndreLeskinen1/AndreLeskinen1.csproj": {
+    "/Users/Andre/Desktop/Development/AndreLeskinen1/AndreLeskinen1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Andre/AndreLeskinen1/AndreLeskinen1.csproj",
+        "projectUniqueName": "/Users/Andre/Desktop/Development/AndreLeskinen1/AndreLeskinen1.csproj",
         "projectName": "AndreLeskinen1",
-        "projectPath": "/Users/Andre/AndreLeskinen1/AndreLeskinen1.csproj",
+        "projectPath": "/Users/Andre/Desktop/Development/AndreLeskinen1/AndreLeskinen1.csproj",
         "packagesPath": "/Users/Andre/.nuget/packages/",
-        "outputPath": "/Users/Andre/AndreLeskinen1/obj/",
+        "outputPath": "/Users/Andre/Desktop/Development/AndreLeskinen1/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/Andre/.nuget/NuGet/NuGet.Config"
